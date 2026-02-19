@@ -1,2 +1,3 @@
-# -1-
-django 프로젝트 1 팀입니다
+# Django 프로젝트 1팀
+
+![ERD 구조](./project_erd.png)
