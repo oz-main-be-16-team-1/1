@@ -11,7 +11,7 @@ class User(models.Model):
     staff = models.BooleanField("스태프 여부", default=False, db_column='스태프여부')
     admin = models.BooleanField("관리자 여부", default=False, db_column='관리자여부')
     active = models.BooleanField("활성화 여부", default=True, db_column='활성화여부')
-    create_at = models.DateTimeField("생성 일시", auto_now_add=True, db_column='생성일시')
+    created_at = models.DateTimeField("생성 일시", auto_now_add=True, db_column='생성일시')
 
     class Meta:
         db_table = 'users'
