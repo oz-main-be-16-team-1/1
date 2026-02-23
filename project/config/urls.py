@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users.views import RegisterView
+from users.views import RegisterView, LogoutView
 
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
+
+from users.views import CookieTokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +30,7 @@ urlpatterns = [
     path('api/users/', include('users.urls')),
 
     # Token
-    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('login/', CookieTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]
