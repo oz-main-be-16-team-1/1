@@ -12,8 +12,8 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password, *args, **kwargs):
-        user = self.create_user(email, password, *args, **kwargs)
+    def create_superuser(self, user_email, password, *args, **kwargs):
+        user = self.create_user(user_email, password, *args, **kwargs)
         user.is_staff = True
         user.is_superuser = True
         user.is_active = True
@@ -28,7 +28,8 @@ class User(AbstractUser):
     user_email = models.EmailField("유저 이메일", max_length=100, unique=True, db_column='이메일')
     user_name = models.CharField("유저 이름", max_length=30, db_column='이름')
     user_nickname = models.CharField("유저 닉네임", max_length=20, unique=True, db_column='닉네임')
-    user_phone = models.CharField("유저 전화번호", max_length=15, unique=True, db_column='전화번호')
+    user_phone = models.CharField("유저 전화번호", max_length=15,
+                                  unique=True, null=True, blank=True, db_column='전화번호')
     created_at = models.DateTimeField("생성 일시", auto_now_add=True, db_column='생성일시')
 
     objects = UserManager()
@@ -39,7 +40,7 @@ class User(AbstractUser):
         return self.user_id
 
     USERNAME_FIELD = 'user_email'
-    REQUIRED_FIELDS = ['user_name', 'user_nickname']
+    REQUIRED_FIELDS = ['user_name'] #<- 배포 단계에서는 'user_nickname'을 다시 추가하고 하기
 
     class Meta:
         db_table = 'users'
