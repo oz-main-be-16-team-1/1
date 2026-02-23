@@ -2,7 +2,7 @@ from django.db import models
 
 class User(models.Model):
     user_id = models.AutoField("유저 식별자", primary_key=True, db_column='유저id')
-    user_email = models.EmailField("유저 이메일", max_length=100, db_column='이메일')
+    user_email = models.EmailField("유저 이메일", max_length=100, unique=True, db_column='이메일')
     user_name = models.CharField("유저 이름", max_length=30, db_column='이름')
     user_nickname = models.CharField("유저 닉네임", max_length=20, unique=True, db_column='닉네임')
     user_pw = models.CharField(max_length=255, db_column='패스워드')
