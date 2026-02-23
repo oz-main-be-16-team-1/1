@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users.views import RegisterView, LogoutView
+from users.views import RegisterView, LogoutView, UserDetailView
 
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
@@ -25,6 +25,7 @@ from users.views import CookieTokenObtainPairView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', RegisterView.as_view(), name='register'),
+    path('profile/', UserDetailView.as_view(), name='user_profile'),
 
     # include
     path('api/users/', include('users.urls')),
