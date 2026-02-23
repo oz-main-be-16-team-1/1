@@ -20,8 +20,8 @@ from users.views import RegisterView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register/', RegisterView.as_view(), name='register'),
 
     # include
     path('api/users/', include('users.urls')),
-    path('register/', RegisterView.as_view(), name='register'),
 ]

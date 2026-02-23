@@ -122,3 +122,5 @@ STATIC_URL = 'static/'
 REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M',
 }
+
+AUTH_USER_MODEL = 'users.User'
