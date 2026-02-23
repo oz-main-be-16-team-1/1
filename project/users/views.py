@@ -12,6 +12,7 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
+
 class CookieTokenObtainPairView(TokenObtainPairView):
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
@@ -26,7 +27,6 @@ class CookieTokenObtainPairView(TokenObtainPairView):
                 response.set_cookie('refresh', refresh_token, httponly=True, path='/')
 
         return response
-
 
 
 class LogoutView(generics.GenericAPIView):
@@ -47,3 +47,16 @@ class LogoutView(generics.GenericAPIView):
             return response
         except Exception:
             return Response({"detail": "유효하지 않은 토큰입니다."}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+    def delete(self, request, *args, **kwargs):
+        user = self.get_object()
+        user.delete()
+        return Response({"detail": "성공적으로 삭제되었습니다."}, status=status.HTTP_200_OK)
