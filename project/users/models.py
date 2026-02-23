@@ -33,6 +33,11 @@ class User(AbstractUser):
 
     objects = UserManager()
 
+    # simpleJWT가 id를 찾을떄 user_id를 주도록 연결
+    @property
+    def id(self):
+        return self.user_id
+
     USERNAME_FIELD = 'user_email'
     REQUIRED_FIELDS = ['user_name', 'user_nickname']
 
