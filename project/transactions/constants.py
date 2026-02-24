@@ -1,3 +1,10 @@
+ACCOUNT_TYPE = [
+    ("CHECKING", "입출금"),
+    ("SAVINGS", "예금"),
+    ("FIXED", "정기예금"),
+    ("INSTALLMENT", "적금"),
+]
+
 BANK_CODES = [
     ("000", "알수없음"),
     ("001", "한국은행"),
