@@ -1,5 +1,7 @@
 # Django 프로젝트 1팀
 
+## ·ERD 구성 ##
+
 ![ERD 구조](./project_erd.png)
 
 
@@ -20,6 +22,25 @@
 🔗 데이터베이스 관계 정의 (Relationships)
 
 
-users → accounts <br>	· user_id	1 : N	한 명의 사용자는 여러 개의 계좌를 보유할 수 있습니다.
+users → accounts <br>	· 1 : N	한 명의 사용자는 여러 개의 계좌를 보유할 수 있습니다.
 
-accounts → transactions	<br> · account_id	1 : N	하나의 계좌에서는 여러 건의 거래 내역이 발생할 수 있습니다.
+accounts → transactions	<br> · 1 : N	하나의 계좌에서는 여러 건의 거래 내역이 발생할 수 있습니다.
+
+
+------
+<br>
+
+## 사용자 인증흐름 FlowChart ##
+<br>
+
+![플로우차트](./project_flowchart.png)
+
+1. **회원가입**<br>
+*정보 입력* → *DB 유효성 체크* → [성공] *계정 생성 및 토큰 발급* → 가입 완료 및 메인 화면 이동
+<br>(실패 시: 에러 메시지 반환 후 재입력)
+2. **로그인**<br>
+*정보 입력* → *DB 사용자 확인* → [성공] *권한 체크* (관리자 vs 일반) → *페이지 활성화*
+<br>(실패 시: 에러 메시지 반환 후 재입력)
+3. **로그아웃** <br>
+*요청* → *Access 토큰 확인* → [성공] *로그인 페이지 리다이렉트*
+<br>(실패 시: 401 Unauthorized 반환)
