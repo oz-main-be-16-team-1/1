@@ -77,10 +77,15 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# .env 파일에서 정보를 읽어오도록 설정 (이미 되어있다면 확인만 하세요)
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',              # .env의 POSTGRES_DB
+        'USER': 'admin',             # .env의 POSTGRES_USER
+        'PASSWORD': 'your-postgres-password', # .env의 POSTGRES_PASSWORD
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
