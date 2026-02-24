@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class TransactionHistory(models.Model):
     class TransactionType(models.TextChoices):
         DEPOSIT = "DEPOSIT", "입금"
@@ -33,16 +32,14 @@ class TransactionHistory(models.Model):
         max_length=20,
         choices=MethodType.choices,
         null=True,
-        db_column="거래타입",
+        db_column="거래타입"
     )
     balance_after = models.DecimalField(
-        "거래 후 잔액",
-        max_digits=15,
-        decimal_places=2,
-        null=True,
-        db_column="거래후잔액",
+        "거래 후 잔액", max_digits=15, decimal_places=2, null=True, db_column="거래후잔액"
     )
-    transaction_at = models.DateTimeField("거래 일시", null=True, db_column="거래일시")
+    transaction_at = models.DateTimeField(
+        "거래 일시", null=True, db_column="거래일시"
+    )
     created_at = models.DateTimeField(
         "데이터 생성일", auto_now_add=True, db_column="created_at"
     )
@@ -52,7 +49,7 @@ class TransactionHistory(models.Model):
         on_delete=models.CASCADE,
         db_column="계좌id",
         related_name="transactions",
-        verbose_name="연결 계좌",
+        verbose_name="연결 계좌"
     )
 
     class Meta:
@@ -61,4 +58,5 @@ class TransactionHistory(models.Model):
         verbose_name_plural = "거래 내역 목록"
 
     def __str__(self):
+        # 예: [입금] 50,000원 (2026-02-23)
         return f"[{self.get_transaction_type_display()}] {self.transaction_amount}원"

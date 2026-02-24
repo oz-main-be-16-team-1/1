@@ -10,9 +10,7 @@ class Account(models.Model):
 
     account_id = models.AutoField("계좌 식별자", primary_key=True, db_column="계좌id")
     bank_code = models.CharField("은행 코드", max_length=3, db_column="은행코드")
-    account_number = models.CharField(
-        "계좌 번호", max_length=30, db_column="계좌번호", unique=True
-    )
+    account_number = models.CharField("계좌 번호", max_length=30, db_column="계좌번호", unique=True)
 
     account_type = models.CharField(
         "계좌 유형", max_length=20, choices=AccountType.choices, db_column="계좌유형"
@@ -22,9 +20,7 @@ class Account(models.Model):
         "계좌 잔액", max_digits=15, decimal_places=2, default=0.00, db_column="계좌잔액"
     )
 
-    created_at = models.DateTimeField(
-        "생성 일시", auto_now_add=True, db_column="생성일시"
-    )
+    created_at = models.DateTimeField("생성 일시", auto_now_add=True, db_column="생성일시")
 
     user = models.ForeignKey(
         "users.User",
