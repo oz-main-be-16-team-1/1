@@ -4,6 +4,8 @@ from .models import User
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
+    list_display = ('user_email', 'user_name', 'user_nickname', 'is_staff', 'is_active')
+
     # 1. 검색 기능 설정 (이메일, 닉네임, 휴대폰번호)
     search_fields = ('user_email', 'user_nickname', 'user_phone')
 
@@ -17,8 +19,15 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('user_email', 'password')}),
         ('개인정보', {'fields': ('user_name', 'user_nickname', 'user_phone')}),
-        ('권한', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
-        ('중요 일정', {'fields': ('last_login', 'created_at')}),
+        ('권한', {'fields': ('is_staff', 'is_active', 'is_superuser')}),
+        ('중요일정', {'fields': ('last_login', 'created_at')}),
+    )
+
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('user_email', 'user_nickname', 'password'),
+        }),
     )
 
     # 정렬 기준
