@@ -44,3 +44,4 @@ class TransactionSerializer(serializers.ModelSerializer):
         if attrs.get("transaction_at") is None and self.instance is None:
             attrs["transaction_at"] = timezone.now()
         return attrs
+#힘들다
