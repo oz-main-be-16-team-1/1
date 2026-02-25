@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Account(models.Model):
@@ -22,13 +23,7 @@ class Account(models.Model):
 
     created_at = models.DateTimeField("생성 일시", auto_now_add=True, db_column="생성일시")
 
-    user = models.ForeignKey(
-        "apps.users.User",
-        on_delete=models.CASCADE,
-        db_column="유저id",
-        related_name="accounts",
-        verbose_name="소유자",
-    )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "accounts"
