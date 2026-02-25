@@ -31,14 +31,20 @@ class TransactionAPITestCase(APITestCase):
         url = reverse('transaction-list-create')
         data = {
             "account": self.account.account_id,
-            "transaction_amount": 2000.00,
+            "transaction_amount": "2000.00",
             "transaction_history": "볼펜 결제",
             "transaction_type": "WITHDRAW",
             "transaction_method": "CARD",
-            "balance_after": 8000.00
+            # "balance_after": 8000.00
         }
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        self.account.refresh_from_db()
+        self.assertEqual(self.account.account_balance, 8000.00)
+
+        self.assertEqual(float(response.data['balance_after']), 8000.00)
+
         self.assertEqual(TransactionHistory.objects.filter(account=self.account).count(), 1)
 
 

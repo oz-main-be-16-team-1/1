@@ -14,9 +14,9 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_USER: ${{ secrets.DB_USER || 'test_user' }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD || 'test_password' }}
-          POSTGRES_DB: ${{ secrets.DB_NAME || 'test_db' }}
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: your-postgres-password
+            POSTGRES_DB: project
         ports:
           - 5432:5432
         options: >-
@@ -48,10 +48,12 @@ jobs:
 
     - name: Run Django Migration
       env:
-          POSTGRES_USER: ${{ secrets.DB_USER || 'test_user' }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD || 'test_password' }}
-          POSTGRES_DB: ${{ secrets.DB_NAME || 'test_db' }}
-          POSTGRES_HOST: localhost
+          DEBUG: True
+          SECRET_KEY: "ci-test-key"
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: your-postgres-password
+          POSTGRES_DB: project
+          POSTGRES_HOST: localhost  # CI 환경에서는 localhost로 고정
           POSTGRES_PORT: 5432
       run: |
         uv run python manage.py makemigrations
@@ -59,9 +61,11 @@ jobs:
 
     - name: Run Django Tests
       env:
-          POSTGRES_USER: ${{ secrets.DB_USER || 'test_user' }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD || 'test_password' }}
-          POSTGRES_DB: ${{ secrets.DB_NAME || 'test_db' }}
+          DEBUG: True
+          SECRET_KEY: "ci-test-key"
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: your-postgres-password
+          POSTGRES_DB: project
           POSTGRES_HOST: localhost
           POSTGRES_PORT: 5432
       run: uv run python manage.py test

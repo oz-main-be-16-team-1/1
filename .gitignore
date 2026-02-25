@@ -7,3 +7,4 @@
 *.xml
 __pycache__/
 *.pyc
+.ai/

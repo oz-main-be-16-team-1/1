@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 from datetime import timedelta
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
+    'drf_spectacular',
     'apps.users',
     'apps.accounts',
     'apps.transactions',
@@ -82,11 +82,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
-        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+        'NAME': 'project',              # .env의 POSTGRES_DB
+        'USER': 'postgres',             # .env의 POSTGRES_USER
+        'PASSWORD': 'your-postgres-password', # .env의 POSTGRES_PASSWORD
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -131,6 +131,9 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
+
+    # 스키마 설정은 REST_FRAMEWORK의 '키(Key)'로서 따로 존재해야 합니다.
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
