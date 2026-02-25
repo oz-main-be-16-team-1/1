@@ -144,4 +144,4 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
 }
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'apps.users.User'

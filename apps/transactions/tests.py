@@ -1,10 +1,10 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
-from transactions.models import TransactionHistory
+from apps.transactions.models import TransactionHistory
 from django.urls import reverse
 
-from users.models import User
-from accounts.models import Account
+from apps.users.models import User
+from apps.accounts.models import Account
 
 
 class TransactionAPITestCase(APITestCase):

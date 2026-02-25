@@ -17,11 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from users.views import RegisterView, LogoutView, UserDetailView
+from apps.users.views import RegisterView, LogoutView, UserDetailView
 
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
-from users.views import CookieTokenObtainPairView
+from apps.users.views import CookieTokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,10 +29,10 @@ urlpatterns = [
     path('profile/', UserDetailView.as_view(), name='user_profile'),
 
     # include
-    path('api/users/', include('users.urls')),
-    path("api/users/", include("users.urls")),
+    path('api/users/', include('apps.users.urls')),
+    path("api/users/", include("apps.users.urls")),
     path("api/accounts/", include("accounts.urls")),
-    path("api/transactions/", include("transactions.urls")),
+    path("api/transactions/", include("apps.transactions.urls")),
 
     # Token
     path('login/', CookieTokenObtainPairView.as_view(), name='token_obtain_pair'),

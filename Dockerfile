@@ -23,7 +23,7 @@ COPY pyproject.toml ./uv.lock* ./
 RUN uv sync --all-packages
 
 # [중요] 애플리케이션 전체 코드 복사 (manage.py 등이 포함되도록)
-COPY . /app
+COPY project /app
 
 # 스크립트 실행 권한 부여 (scripts 폴더가 있다면)
 RUN chmod +x /app/scripts/*.sh 2>/dev/null || true
