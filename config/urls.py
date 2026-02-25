@@ -29,9 +29,8 @@ urlpatterns = [
     path('profile/', UserDetailView.as_view(), name='user_profile'),
 
     # include
-    path('api/users/', include('apps.users.urls')),
+    path("api/accounts/", include("apps.accounts.urls")),
     path("api/users/", include("apps.users.urls")),
-    path("api/accounts/", include("accounts.urls")),
     path("api/transactions/", include("apps.transactions.urls")),
 
     # Token
