@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.users.views import RegisterView, LogoutView, UserDetailView
 
-from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
+from rest_framework_simplejwt.views import TokenRefreshView
 
 from apps.users.views import CookieTokenObtainPairView
 
