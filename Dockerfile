@@ -17,7 +17,7 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 WORKDIR /app
 
 # 의존성 파일 먼저 복사
-COPY pyproject.toml ./uv.lock* ./
+COPY pyproject.toml uv.lock* ./
 
 # 패키지 설치 (lock 파일이 없을 수도 있으니 에러 방지)
 RUN uv sync --all-packages
@@ -26,7 +26,7 @@ RUN uv sync --all-packages
 COPY . /app
 
 # 스크립트 실행 권한 부여 (scripts 폴더가 있다면)
-RUN chmod +x /app/scripts/*.sh 2>/dev/null || true
+RUN chmod +x /app/scripts/*.sh
 
 # 포트 설정
 EXPOSE 8000
