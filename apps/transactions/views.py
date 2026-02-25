@@ -3,7 +3,7 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
 from .models import TransactionHistory
-from .serializers import TransactionSerializer
+from .transactions_serializers import TransactionSerializer
 from .services import get_queryset
 from .services import perform_destroy
 from .services import perform_update

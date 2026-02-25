@@ -82,11 +82,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
-        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+        'NAME': 'project',              # .env의 POSTGRES_DB
+        'USER': 'postgres',             # .env의 POSTGRES_USER
+        'PASSWORD': 'your-postgres-password', # .env의 POSTGRES_PASSWORD
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

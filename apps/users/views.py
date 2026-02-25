@@ -5,7 +5,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .models import User
-from .serializers import UserSerializer
+from .users_serializers import UserSerializer
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
