@@ -2,3 +2,8 @@
 .env
 .idea
 .idea/*
+.idea/
+.vscode/
+*.xml
+__pycache__/
+*.pyc
