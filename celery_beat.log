@@ -1,0 +1,2415 @@
+[2026-02-26 14:07:01,786: INFO/MainProcess] beat: Starting...
+[2026-02-26 14:07:01,853: INFO/MainProcess] DatabaseScheduler: Schedule changed.
+[2026-02-26 14:14:49,284: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:14:54,308: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:14:59,324: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:04,341: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:09,350: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:14,363: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:19,380: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:24,399: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:29,416: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:34,440: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:39,456: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:44,472: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:49,481: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:54,493: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:15:59,506: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:04,514: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:09,523: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:14,534: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:19,543: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:24,554: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:29,567: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:34,576: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:39,585: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:44,595: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:49,605: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:54,613: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:16:59,625: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:17:04,636: ERROR/MainProcess] Database gave error: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 417, in schedule_changed
+    last, ts = self._last_timestamp, self.Changes.last_change()
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/models.py", line 427, in last_change
+    return cls.objects.get(ident=1).last_update
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 647, in get
+    num = len(clone)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 384, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:17:04,642: CRITICAL/MainProcess] beat raised exception <class 'django.db.utils.OperationalError'>: OperationalError('connection to server at "127.0.0.1", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n')
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/apps/beat.py", line 113, in start_scheduler
+    service.start()
+    ~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/beat.py", line 645, in start
+    interval = self.scheduler.tick()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/beat.py", line 339, in tick
+    not self.schedules_equal(self.old_schedulers, self.schedule)):
+                                                  ^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 531, in schedule
+    self._schedule = self.all_as_schedule()
+                     ~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 266, in all_as_schedule
+    for model in self.enabled_models():
+                 ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 279, in enabled_models
+    return list(self.enabled_models_qs())
+                ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 290, in enabled_models_qs
+    exclude_cron_tasks_query = self._get_crontab_exclude_query()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 343, in _get_crontab_exclude_query
+    for timezone_name in self._get_unique_timezone_names()
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 402, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 289, in __iter__
+    for row in compiler.results_iter(
+               ~~~~~~~~~~~~~~~~~~~~~^
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1525, in results_iter
+    results = self.execute_sql(
+        MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size
+    )
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+  File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2026-02-26 14:17:04,651: WARNING/MainProcess] Traceback (most recent call last):
+[2026-02-26 14:17:04,651: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,652: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+[2026-02-26 14:17:04,652: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[2026-02-26 14:17:04,652: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+[2026-02-26 14:17:04,652: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+[2026-02-26 14:17:04,652: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+[2026-02-26 14:17:04,652: WARNING/MainProcess] psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+[2026-02-26 14:17:04,652: WARNING/MainProcess] 
+The above exception was the direct cause of the following exception:
+[2026-02-26 14:17:04,652: WARNING/MainProcess] Traceback (most recent call last):
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/bin/celery", line 10, in <module>
+    sys.exit(main())
+             ~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+             ~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/bin/celery.py", line 227, in main
+    return celery(auto_envvar_prefix="CELERY")
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/click/core.py", line 1873, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+                           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/click/decorators.py", line 34, in new_func
+    return f(get_current_context(), *args, **kwargs)
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/bin/base.py", line 135, in caller
+    return f(ctx, *args, **kwargs)
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+           ~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/apps/beat.py", line 84, in run
+    self.start_scheduler()
+    ~~~~~~~~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/apps/beat.py", line 113, in start_scheduler
+    service.start()
+    ~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/beat.py", line 645, in start
+    interval = self.scheduler.tick()
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/celery/beat.py", line 339, in tick
+    not self.schedules_equal(self.old_schedulers, self.schedule)):
+                                                  ^^^^^^^^^^^^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 531, in schedule
+    self._schedule = self.all_as_schedule()
+                     ~~~~~~~~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 266, in all_as_schedule
+    for model in self.enabled_models():
+                 ~~~~~~~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 279, in enabled_models
+    return list(self.enabled_models_qs())
+                ~~~~~~~~~~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 290, in enabled_models_qs
+    exclude_cron_tasks_query = self._get_crontab_exclude_query()
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django_celery_beat/schedulers.py", line 343, in _get_crontab_exclude_query
+    for timezone_name in self._get_unique_timezone_names()
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 402, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 1933, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/query.py", line 289, in __iter__
+    for row in compiler.results_iter(
+               ~~~~~~~~~~~~~~~~~~~~~^
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1525, in results_iter
+    results = self.execute_sql(
+        MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size
+    )
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 319, in cursor
+    return self._cursor()
+           ~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 295, in _cursor
+    self.ensure_connection()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 277, in ensure_connection
+    with self.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    self.connect()
+    ~~~~~~~~~~~~^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/base/base.py", line 255, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[2026-02-26 14:17:04,654: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+[2026-02-26 14:17:04,655: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+[2026-02-26 14:17:04,655: WARNING/MainProcess]   File "/Users/admin/Desktop/2/.venv/lib/python3.14/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+[2026-02-26 14:17:04,655: WARNING/MainProcess] django.db.utils.OperationalError: connection to server at "127.0.0.1", port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+celery beat v5.6.2 (recovery) is starting.
+__    -    ... __   -        _
+LocalTime -> 2026-02-26 14:07:01
+Configuration ->
+    . broker -> redis://127.0.0.1:6379/0
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> django_celery_beat.schedulers.DatabaseScheduler
+
+    . logfile -> [stderr]@%INFO
+    . maxinterval -> 5.00 seconds (5s)
