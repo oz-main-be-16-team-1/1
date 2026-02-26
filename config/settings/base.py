@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 from datetime import timedelta
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 from celery.schedules import crontab
 
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'apps.analysis',
     'django_celery_beat',
     'django_celery_results',
+    'apps.notifications',
 ]
 
 MIDDLEWARE = [
@@ -84,14 +87,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 # .env 파일에서 정보를 읽어오도록 설정 (이미 되어있다면 확인만 하세요)
+load_dotenv()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project',              # .env의 POSTGRES_DB
-        'USER': 'postgres',             # .env의 POSTGRES_USER
-        'PASSWORD': 'your-postgres-password', # .env의 POSTGRES_PASSWORD
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
 }
 
