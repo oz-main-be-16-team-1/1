@@ -14,7 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from apps.users.views import RegisterView, LogoutView, UserDetailView
@@ -33,6 +34,7 @@ urlpatterns = [
     path("api/accounts/", include("apps.accounts.urls")),
     path("api/users/", include("apps.users.urls")),
     path("api/transactions/", include("apps.transactions.urls")),
+    path('api/analysis/', include('apps.analysis.urls')),
 
     # Token
     path('login/', CookieTokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -44,3 +46,7 @@ urlpatterns = [
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
+
+# 미디어 파일을 서빙하기 위한 환 설정
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

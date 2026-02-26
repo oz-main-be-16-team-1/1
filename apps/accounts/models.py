@@ -23,7 +23,11 @@ class Account(models.Model):
 
     created_at = models.DateTimeField("생성 일시", auto_now_add=True, db_column="생성일시")
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        db_column="유저id"
+    )
 
     class Meta:
         db_table = "accounts"
