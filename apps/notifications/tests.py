@@ -4,13 +4,13 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from .models import Notification
 
+# User 모델 가져오기
 User = get_user_model()
 
 
 class NotificationAPITests(APITestCase):
     def setUp(self):
         """테스트 시작 전 기초 데이터 설정"""
-        # 필수 필드인 user_name과 user_nickname을 명확히 전달합니다.
         self.user = User.objects.create_user(
             user_email="testuser@example.com",
             password="testpassword123",
@@ -19,7 +19,6 @@ class NotificationAPITests(APITestCase):
         )
         self.client.force_authenticate(user=self.user)
 
-        # 테스트용 알림 데이터 생성
         self.unread_notification = Notification.objects.create(
             user=self.user, message="읽지 않은 알람입니다.", is_read=False
         )
@@ -32,9 +31,7 @@ class NotificationAPITests(APITestCase):
         url = reverse("notification-list")
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # 생성한 알람 2개가 모두 응답에 포함되는지 확인
         self.assertEqual(len(response.data), 2)
-        # 안 읽은 것이 먼저 오는지 확인 (정렬 로직에 따라)
         self.assertEqual(response.data[0]["is_read"], False)
 
     def test_notification_detail_and_auto_read(self):
@@ -44,17 +41,25 @@ class NotificationAPITests(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        # 실제 DB 값이 True로 변경되었는지 검증
         self.unread_notification.refresh_from_db()
         self.assertTrue(self.unread_notification.is_read)
 
     def test_notification_access_denied_for_other_user(self):
         """보안 테스트: 다른 유저의 알람을 볼 수 없는지 확인"""
-        # 다른 유저 생성 시에도 고유한 닉네임 부여
+        # 1. 다른 유저 생성 (변수 사용함)
         other_user = User.objects.create_user(
             user_email="other@example.com",
             password="password",
             user_name="다른유저",
             user_nickname="테스터2",
         )
-        other_notification = Notification.objects.create
+
+        # 2. 생성한 other_user 변수를 사용하여 알람 생성
+        notif = Notification.objects.create(user=other_user, message="다른 사람 것")
+
+        # 3. 생성한 notif 변수를 사용하여 URL 생성
+        url = reverse("notification-detail", kwargs={"pk": notif.pk})
+        response = self.client.get(url)
+
+        # 4. status 모듈을 사용하여 상태 코드 검증
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
