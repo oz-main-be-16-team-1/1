@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.conf import settings
-from django.db.models.fields import DateTimeField
 
 
 class Analysis(models.Model):
@@ -42,8 +41,8 @@ class Analysis(models.Model):
         null=True,
         verbose_name="결과 이미지"
     )
-    created_at = DateTimeField(auto_now_add=True)
-    updated_at = DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'analysis'
