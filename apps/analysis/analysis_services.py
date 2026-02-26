@@ -29,7 +29,7 @@ class AnalysisService:
             return None
 
         # pandas 가공
-        df = pd.DateFrame(list(queryset))
+        df = pd.DataFrame(list(queryset))
         df['transaction_amount'] = df['transaction_amount'].astype(float)
         df['transaction_at'] = pd.to_datetime(df['transaction_at'])
 
