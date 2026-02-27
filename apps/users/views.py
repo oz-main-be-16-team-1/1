@@ -31,22 +31,28 @@ class CookieTokenObtainPairView(TokenObtainPairView):
 
 class LogoutView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = None
 
     def post(self, request, *args, **kwargs):
-        try:
-            refresh_token = request.data.get('refresh')
-            if not refresh_token:
-                return Response({"detail": "Refresh token이 필요합니다."}, status=status.HTTP_400_BAD_REQUEST)
+        refresh_token = request.cookies.get('refresh')
 
-            token = RefreshToken(refresh_token)
-            token.blacklist()
+        if not refresh_token:
+            refresh_token = request.data.get('refresh')
+
+        try:
+            if refresh_token:
+                token = RefreshToken(refresh_token)
+                token.blacklist()
 
             response = Response({"detail": "성공적으로 로그아웃이 되었습니다."}, status=status.HTTP_200_OK)
             response.delete_cookie('access')
             response.delete_cookie('refresh')
             return response
         except Exception:
-            return Response({"detail": "유효하지 않은 토큰입니다."}, status=status.HTTP_400_BAD_REQUEST)
+            response = Response({'detail': '로그아웃 처리되었습니다.'}, status=status.HTTP_200_OK)
+            response.delete_cookie('access')
+            response.delete_cookie('refresh')
+            return response
 
 
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
