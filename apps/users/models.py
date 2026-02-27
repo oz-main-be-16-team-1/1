@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.core.validators import RegexValidator
 from django.db import models
 
 
@@ -28,8 +29,9 @@ class User(AbstractUser):
     user_email = models.EmailField("유저 이메일", max_length=100, unique=True, db_column='이메일')
     user_name = models.CharField("유저 이름", max_length=30, db_column='이름')
     user_nickname = models.CharField("유저 닉네임", max_length=20, unique=True, db_column='닉네임')
-    user_phone = models.CharField("유저 전화번호", max_length=15,
-                                  unique=True, null=True, blank=True, db_column='전화번호')
+    user_phone = models.CharField("유저 전화번호", max_length=11,
+                                  validators=[RegexValidator(regex=r'^\d+$', message="숫자만 입력하세요.")],
+                                  null=False, blank=False, unique=True, db_column='전화번호')
     created_at = models.DateTimeField("생성 일시", auto_now_add=True, db_column='생성일시')
 
     objects = UserManager()
