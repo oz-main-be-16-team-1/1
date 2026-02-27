@@ -52,6 +52,7 @@ class NotificationAPITests(APITestCase):
             password="password",
             user_name="다른유저",
             user_nickname="테스터2",
+            user_phone='01000003323'
         )
 
         # 2. 생성한 other_user 변수를 사용하여 알람 생성
