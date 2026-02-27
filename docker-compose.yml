@@ -20,8 +20,9 @@ services:
     ports:
       - "6379:6379"
   web:
-    build: .
-    command: /app/scripts/run.sh
+   # build: .
+    image: moulpass/my-django-app:image1
+    command: uv run  python manage.py runserver 0.0.0.0:8000 --settings=config.settings.base
     env_file:
       - .env
     ports:

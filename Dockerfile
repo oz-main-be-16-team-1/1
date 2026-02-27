@@ -32,4 +32,4 @@ RUN chmod +x /app/scripts/*.sh
 EXPOSE 8000
 
 # Django 개발 서버 실행 (설정 파일 경로 명시)
-CMD ["uv", "run", "python", "manage.py", "runserver", "0.0.0.0:8000", "--settings=config.settings.dev"]
+CMD ["uv", "run", "python", "manage.py", "runserver", "0.0.0.0:8000", "--settings=config.settings.base"]
